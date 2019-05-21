@@ -3,9 +3,10 @@ import org.apache.spark.SparkContext
 
 object WordCount {
   def main(args: Array[String]): Unit = {
-    val inputFile =  "hdfs://master:9000/input.txt"
-    val conf = new SparkConf().setAppName("WordCount").setMaster("spark://master:7077").
-      setJars(List("/Users/hcb/IdeaProjects/sparkDemo/out/artifacts/sparkDemo_jar/sparkDemo.jar"))
+    val inputFile =  "/home/hcb/SimpleKafkaProducer.java"
+
+    val conf = new SparkConf().setAppName("WordCount")
+
 
 
     /**
@@ -33,7 +34,7 @@ object WordCount {
       * 把每一个word变成(word,1)这种元素
       */
     val wordCount=lines.map(word => (word, 1)).reduceByKey((a, b) => a + b)
-    val output = wordCount.saveAsTextFile("hdfs://master:9000/sparkRes")
+    val output = wordCount.saveAsTextFile("/home/hcb/sparkRes1")
 
 
     /**

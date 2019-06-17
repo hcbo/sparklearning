@@ -1,5 +1,6 @@
-import org.apache.spark.SparkConf
-import org.apache.spark.SparkContext
+package spark
+
+import org.apache.spark.{SparkConf, SparkContext}
 
 object WordCount {
   def main(args: Array[String]): Unit = {
@@ -29,6 +30,7 @@ object WordCount {
       * 返回一个新的rdd,即lines
       */
     val lines = textFile.flatMap(line => line.split(" "))
+
     /**
       * word => (word, 1)
       * 把每一个word变成(word,1)这种元素

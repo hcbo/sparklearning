@@ -1,3 +1,5 @@
+package spark
+
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -23,7 +25,7 @@ object WordCountLocal {
       * 弹性分布式数据集, 是分布式内存的一个抽象概念
       * 虽然文件分割到不同的机器上,但是仍能用textFile这个变量代表整个文件
       */
-    val textFile = sc.textFile(inputFile)
+    val textFile = sc.textFile(inputFile,4)
     /**
       *line => line.split(" ")是一个匿名函数,line相当于这个函数的参数,
       * 对每个line都进行split操作,
@@ -32,6 +34,8 @@ object WordCountLocal {
       * 返回一个新的rdd,即lines
       */
     val lines = textFile.flatMap(line => line.split(" "))
+
+
     /**
       * word => (word, 1)
       * 把每一个word变成(word,1)这种元素

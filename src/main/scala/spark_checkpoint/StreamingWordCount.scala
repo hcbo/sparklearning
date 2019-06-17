@@ -1,3 +1,4 @@
+package spark_checkpoint
 
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
@@ -6,14 +7,13 @@ import org.apache.spark.streaming.kafka010.KafkaUtils
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
-
 object StreamingWordCount {
   def main(args: Array[String]): Unit = {
     // 创建StreamingContext
     /* StreamingContext.getOrCreate方法会优先查看检查点路径下是否有之前保存的数据
     如果有，则根据已经保存的数据恢复失败前的计算状态；如果没有，则认为是第一次启动，调用
     functionToCreateContext方法创建一个新的StreamingContext开始任务*/
-    val ssc = StreamingContext.getOrCreate("./checkpoint", functionToCreateContext _)
+    val ssc = StreamingContext.getOrCreate("./checkpoint_streaming", functionToCreateContext _)
 
     // 开始
     ssc.start()
@@ -42,7 +42,7 @@ object StreamingWordCount {
     val ssc = new StreamingContext(sparkConf, Seconds(1))
 
     // 配置检查点目录
-    ssc.checkpoint("./checkpoint")
+    ssc.checkpoint("./checkpoint_streaming")
 
     // kafka参数
     val kafkaParams = Map[String, Object](

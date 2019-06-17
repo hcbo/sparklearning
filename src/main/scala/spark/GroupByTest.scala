@@ -1,7 +1,8 @@
+package spark
+
 import java.util.Random
 
 import org.apache.spark.{SparkConf, SparkContext}
-
 
 object GroupByTest {
   def main(args: Array[String]) {
@@ -34,5 +35,3 @@ object GroupByTest {
     sc.stop()
   }
 }
-
-

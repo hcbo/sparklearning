@@ -9,13 +9,16 @@ object kafkaWordCount {
     Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
     Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.WARN)
     Logger.getLogger("org.apache.kafka.clients.consumer").setLevel(Level.WARN)
+
     val spark = SparkSession
       .builder
       .appName("StructuredStreamingWordCount")
       .master("local").getOrCreate()
+
     val topic = "for_spark"
     val broker = "kafka:9092"
-    val df = spark
+
+    val dataStreamReader = spark
       .readStream
       .format("kafka")
       .option("kafka.bootstrap.servers",broker)
@@ -23,7 +26,9 @@ object kafkaWordCount {
       .option("startingOffsets", "latest")
       .option("max.poll.records", 10000)
       .option("failOnDataLoss","false")
-      .load()
+
+    val df = dataStreamReader.load()
+
 
     import spark.implicits._
 
@@ -34,14 +39,17 @@ object kafkaWordCount {
       .select("value").as[String].flatMap(_.split(" "))
 
     val wordcount = word.groupBy("value").count()
-    val q = wordcount
+
+    val dataStreamWriter = wordcount
       .writeStream
       .queryName("kafka_test")
       .option("checkpointLocation","./checkpoint4")
       .outputMode(OutputMode.Complete())
       .format("console")
-      .start()
-    q.awaitTermination()
+
+    val query = dataStreamWriter.start()
+
+    query.awaitTermination()
   }
 
 

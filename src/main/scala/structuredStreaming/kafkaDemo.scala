@@ -15,9 +15,11 @@ object kafkaDemo {
       .appName("StructuredStreaming")
       .master("local[2]")
       .getOrCreate()
+
     val topic = "for_spark"
     val broker = "kafka:9092"
-    val df = spark
+
+    val dataStreamReader = spark
       .readStream
       .format("kafka")
       .option("kafka.bootstrap.servers",broker)
@@ -25,17 +27,21 @@ object kafkaDemo {
       .option("startingOffsets", "latest")
       .option("max.poll.records", 10000)
       .option("failOnDataLoss","false")
-      .load()
+
+    val df = dataStreamReader.load()
 
     import spark.implicits._
     df.printSchema()
-    val q = df.select("*")
+
+    val dataStreamWriter = df.select("*")
       .writeStream
       .queryName("kafka_test")
       .outputMode(OutputMode.Append())
       .format("console")
-      .start()
-    q.awaitTermination()
+
+    val query = dataStreamWriter.start()
+
+    query.awaitTermination()
   }
 
 

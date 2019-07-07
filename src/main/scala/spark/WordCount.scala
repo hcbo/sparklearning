@@ -7,6 +7,8 @@ object WordCount {
     val inputFile =  "hdfs://master:9000/input.txt"
 
     val conf = new SparkConf().setAppName("WordCount")
+      // 如果打包到集群上运行,将下面这句注释掉
+      .setMaster("local")
 
 
 

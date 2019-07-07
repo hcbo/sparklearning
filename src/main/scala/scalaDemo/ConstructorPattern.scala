@@ -10,11 +10,10 @@ object ConstructorPattern {
     case _ => "Other"
   }
   def main(args: Array[String]): Unit = {
-    val p = new Person("摇摆少年梦",27)
+    val p = new Person("NewBee",27)
     val s = new Student("hcb",18)
     println(constructorPattern(p))
     println(constructorPattern(s))
-
   }
 
 }

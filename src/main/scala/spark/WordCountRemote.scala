@@ -1,15 +1,19 @@
 package spark
 
+/**
+  * 运行结果显示 ,资源不足
+  */
+
 import org.apache.spark.{SparkConf, SparkContext}
 
-object WordCount {
+object WordCountRemote {
   def main(args: Array[String]): Unit = {
-    val inputFile = "alluxio://master:19998/alluxiotest"
-//    val inputFile = "hdfs://master:9000/input.txt"
+    val inputFile = "hdfs://master:9000/input.txt"
 
-    val conf = new SparkConf().setAppName("WordCount")
+    val conf = new SparkConf().setAppName("WordCountRemote")
       // 如果打包到集群上运行,将下面这句注释掉
-      .setMaster("local")
+      .setMaster("spark://master:7077")
+      .setJars(List("/Users/hcb/IdeaProjects/sparkDemo/out/artifacts/sparkDemo_jar/sparkDemo.jar"))
 
 
 
@@ -39,8 +43,7 @@ object WordCount {
       * 把每一个word变成(word,1)这种元素
       */
     val wordCount=lines.map(word => (word, 1)).reduceByKey((a, b) => a + b)
-    val output = wordCount.saveAsTextFile("alluxio://master:19998/sparkRes")
-//    val output = wordCount.saveAsTextFile("hdfs://master:9000/sparkRes")
+    val output = wordCount.saveAsTextFile("hdfs://master:9000/sparkResRemote")
 
 
     /**

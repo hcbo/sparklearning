@@ -6,16 +6,13 @@ import org.apache.spark.sql.streaming.OutputMode
 
 object kafkaWordCount {
   def main(args: Array[String]): Unit = {
-    Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
-    Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.WARN)
-    Logger.getLogger("org.apache.kafka.clients.consumer").setLevel(Level.WARN)
 
     val spark = SparkSession
       .builder
       .appName("StructuredStreamingWordCount")
       .master("local").getOrCreate()
 
-    val topic = "for_spark"
+    val topic = "for_spark5"
     val broker = "kafka:9092"
 
     val dataStreamReader = spark
@@ -43,7 +40,7 @@ object kafkaWordCount {
     val dataStreamWriter = wordcount
       .writeStream
       .queryName("kafka_test")
-      .option("checkpointLocation","./checkpoint4")
+      .option("checkpointLocation","alluxio://localhost:19998/dummy/checkpoint_streaming1")
       .outputMode(OutputMode.Complete())
       .format("console")
 

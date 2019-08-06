@@ -41,7 +41,7 @@ public class KafkaProducerDemo {
         while (true) {
             wordIndex = (int) (Math.random() * sources.length);
 
-            ProducerRecord record = new ProducerRecord("for_spark", UUID.randomUUID().toString(),sources[wordIndex]);
+            ProducerRecord record = new ProducerRecord("for_spark5", UUID.randomUUID().toString(),sources[wordIndex]);
             System.out.println(record.key()+"->"+record.value());
             producer.send(record);
             Thread.sleep(1000);

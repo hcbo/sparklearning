@@ -42,7 +42,7 @@ object WordCountLocal {
       */
     val wordCount=lines.map(word => (word, 1)).reduceByKey((a, b) => a + b)
 //    val output = wordCount.saveAsTextFile("/Users/hcb/Desktop/result")
-    wordCount.collect().foreach(println)
+    wordCount.collect().foreach(println);
 
     /**
       * 上边的例子中, flatMap()和map()都是transformation操作

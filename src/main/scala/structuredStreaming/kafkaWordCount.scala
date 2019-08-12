@@ -12,7 +12,7 @@ object kafkaWordCount {
       .appName("StructuredStreamingWordCount")
       .master("local").getOrCreate()
 
-    val topic = "for_spark5"
+    val topic = "sparkAlluxio"
     val broker = "kafka:9092"
 
     val dataStreamReader = spark
@@ -40,7 +40,7 @@ object kafkaWordCount {
     val dataStreamWriter = wordcount
       .writeStream
       .queryName("kafka_test")
-      .option("checkpointLocation","alluxio://localhost:19998/dummy/checkpoint_streaming1")
+      .option("checkpointLocation","alluxio://localhost:19998/neu/checkpoint_streaming1")
       .outputMode(OutputMode.Complete())
       .format("console")
 

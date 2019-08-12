@@ -13,7 +13,7 @@ object SparkSQLDemo {
     val df = spark.read.json("/Users/hcb/IdeaProjects/sparkDemo/src/main/resources/people.json")
 
     // Displays the content of the DataFrame to stdout
-    df.show()
+    df.show();
   }
 
 }

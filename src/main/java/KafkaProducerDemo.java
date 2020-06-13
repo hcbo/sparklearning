@@ -14,7 +14,7 @@ public class KafkaProducerDemo {
         Properties props = new Properties();
 
         //broker地址
-        props.put("bootstrap.servers", "192.168.225.6:9092");
+        props.put("bootstrap.servers", "219.216.65.161:9092");
 
         //请求时候需要验证ide
         props.put("acks", "-1");
@@ -35,13 +35,14 @@ public class KafkaProducerDemo {
 
         Producer<String, String> producer = new org.apache.kafka.clients.producer.KafkaProducer<>(props);
         String[] sources = {"spark", "hadoop", "flink", "hbase", "kafka"};
+        int no = 0;
         int wordIndex;
 
 
         while (true) {
             wordIndex = (int) (Math.random() * sources.length);
-
-            ProducerRecord record = new ProducerRecord("sparkAlluxio", UUID.randomUUID().toString(),sources[wordIndex]);
+            no++;
+            ProducerRecord record = new ProducerRecord("mfsTest2",String.valueOf(no) ,sources[wordIndex]);
             System.out.println(record.key()+"->"+record.value());
             producer.send(record);
             Thread.sleep(1000);

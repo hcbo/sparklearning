@@ -1,0 +1,63 @@
+Manifest-Version: 1.0
+Class-Path: aopalliance-repackaged-2.4.0-b34.jar metrics-json-3.1.5.ja
+ r scala-parser-combinators_2.11-1.1.0.jar stax-api-1.0-2.jar log4j-1.
+ 2.17.jar curator-framework-2.6.0.jar jersey-container-servlet-2.22.2.
+ jar spark-streaming-kafka-0-10-assembly_2.11-2.4.3.jar api-util-1.0.0
+ -M20.jar spark-sql-kafka-0-10_2.11-2.4.3.jar hppc-0.7.2.jar hadoop-co
+ mmon-2.6.5.jar activation-1.1.1.jar jackson-module-scala_2.11-2.6.7.1
+ .jar snappy-java-1.1.7.3.jar ivy-2.4.0.jar jackson-annotations-2.6.7.
+ jar validation-api-1.1.0.Final.jar gson-2.2.4.jar parquet-column-1.10
+ .1.jar guava-11.0.2.jar jettison-1.1.jar hadoop-yarn-server-common-2.
+ 6.5.jar httpcore-4.2.4.jar avro-mapred-1.8.2-hadoop2.jar protobuf-jav
+ a-2.5.0.jar hk2-locator-2.4.0-b34.jar spark-kvstore_2.11-2.4.3.jar py
+ rolite-4.13.jar spark-sketch_2.11-2.4.3.jar aircompressor-0.10.jar py
+ 4j-0.10.7.jar lz4-java-1.5.0.jar httpclient-4.2.5.jar commons-compres
+ s-1.8.1.jar commons-lang-2.6.jar metrics-core-3.1.5.jar hadoop-mapred
+ uce-client-common-2.6.5.jar javax.ws.rs-api-2.0.1.jar cglib-2.2.1-v20
+ 090111.jar junit-3.8.1.jar commons-net-3.1.jar avro-ipc-1.8.2.jar jac
+ kson-jaxrs-1.9.13.jar orc-core-1.5.5-nohive.jar spark-network-common_
+ 2.11-2.4.3.jar hadoop-yarn-api-2.6.5.jar spark-network-shuffle_2.11-2
+ .4.3.jar metrics-graphite-3.1.5.jar parquet-common-1.10.1.jar hadoop-
+ auth-2.6.5.jar spark-core_2.11-2.4.3.jar jackson-xc-1.9.13.jar xerces
+ Impl-2.9.1.jar orc-mapreduce-1.5.5-nohive.jar zookeeper-3.4.6.jar com
+ mons-codec-1.10.jar chill-java-0.9.3.jar arrow-vector-0.10.0.jar xmle
+ nc-0.52.jar kryo-shaded-4.0.2.jar jersey-common-2.22.2.jar spark-sql_
+ 2.11-2.4.3.jar hadoop-mapreduce-client-core-2.6.5.jar zstd-jni-1.3.8-
+ 1.jar jackson-core-asl-1.9.13.jar slf4j-api-1.7.25.jar spark-tags_2.1
+ 1-2.4.3.jar xbean-asm6-shaded-4.8.jar netty-3.9.9.Final.jar commons-m
+ ath3-3.4.1.jar commons-digester-1.8.jar kafka-clients-2.2.0.jar compr
+ ess-lzf-1.0.3.jar hadoop-annotations-2.6.5.jar parquet-jackson-1.10.1
+ .jar osgi-resource-locator-1.0.1.jar htrace-core-3.0.4.jar json4s-sca
+ lap_2.11-3.5.3.jar jackson-module-paranamer-2.7.9.jar spark-unsafe_2.
+ 11-2.4.3.jar scala-reflect-2.11.12.jar jersey-container-servlet-core-
+ 2.22.2.jar hadoop-yarn-common-2.6.5.jar commons-cli-1.2.jar chill_2.1
+ 1-0.9.3.jar netty-all-4.1.17.Final.jar jul-to-slf4j-1.7.16.jar jersey
+ -server-2.22.2.jar hadoop-mapreduce-client-shuffle-2.6.5.jar arrow-me
+ mory-0.10.0.jar parquet-encoding-1.10.1.jar commons-collections-3.2.2
+ .jar janino-3.0.9.jar arrow-format-0.10.0.jar spark-launcher_2.11-2.4
+ .3.jar RoaringBitmap-0.7.45.jar jetty-util-6.1.26.jar apacheds-i18n-2
+ .0.0-M15.jar hcbMfs-1.0.0.jar api-asn1-api-1.0.0-M20.jar commons-io-2
+ .4.jar jsr305-3.0.2.jar hadoop-mapreduce-client-jobclient-2.6.5.jar s
+ park-streaming_2.11-2.4.3.jar jcl-over-slf4j-1.7.16.jar jersey-guava-
+ 2.22.2.jar jackson-core-2.7.9.jar hadoop-hdfs-2.6.5.jar metrics-jvm-3
+ .1.5.jar antlr4-runtime-4.7.jar commons-beanutils-1.7.0.jar univocity
+ -parsers-2.7.3.jar commons-compiler-3.0.9.jar jackson-mapper-asl-1.9.
+ 13.jar xz-1.5.jar shims-0.7.45.jar jline-0.9.94.jar jersey-media-jaxb
+ -2.22.2.jar scala-library-2.11.12.jar json4s-core_2.11-3.5.3.jar json
+ 4s-jackson_2.11-3.5.3.jar leveldbjni-all-1.8.jar xml-apis-1.3.04.jar 
+ paranamer-2.8.jar minlog-1.3.0.jar commons-crypto-1.0.0.jar hadoop-ma
+ preduce-client-app-2.6.5.jar javax.servlet-api-3.1.0.jar hk2-api-2.4.
+ 0-b34.jar oro-2.0.8.jar javax.annotation-api-1.2.jar stream-2.7.0.jar
+  json4s-ast_2.11-3.5.3.jar hadoop-yarn-client-2.6.5.jar orc-shims-1.5
+ .5.jar joda-time-2.9.9.jar flatbuffers-1.2.0-3f79e055.jar parquet-for
+ mat-2.4.0.jar commons-httpclient-3.1.jar commons-configuration-1.6.ja
+ r javassist-3.18.1-GA.jar javax.inject-2.4.0-b34.jar parquet-hadoop-1
+ .10.1.jar jackson-databind-2.6.7.1.jar guice-3.0.jar commons-lang3-3.
+ 5.jar hk2-utils-2.4.0-b34.jar objenesis-2.5.1.jar unused-1.0.0.jar je
+ rsey-client-2.22.2.jar scala-xml_2.11-1.0.6.jar jaxb-api-2.2.2.jar ja
+ vax.inject-1.jar curator-recipes-2.6.0.jar avro-1.8.2.jar hadoop-clie
+ nt-2.6.5.jar slf4j-log4j12-1.7.16.jar aopalliance-1.0.jar spark-catal
+ yst_2.11-2.4.3.jar apacheds-kerberos-codec-2.0.0-M15.jar curator-clie
+ nt-2.6.0.jar
+Main-Class: structuredStreaming.kafkaWordCount
+

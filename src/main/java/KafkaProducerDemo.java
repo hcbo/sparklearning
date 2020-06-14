@@ -42,10 +42,10 @@ public class KafkaProducerDemo {
         while (true) {
             wordIndex = (int) (Math.random() * sources.length);
             no++;
-            ProducerRecord record = new ProducerRecord("mfsTest2",String.valueOf(no) ,sources[wordIndex]);
+            ProducerRecord record = new ProducerRecord("mfsTest3",String.valueOf(no) ,sources[wordIndex]);
             System.out.println(record.key()+"->"+record.value());
             producer.send(record);
-            Thread.sleep(1000);
+            Thread.sleep(50);
         }
 
 

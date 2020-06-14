@@ -38,8 +38,8 @@ object kafkaWordCount {
     })
 
     val topic1 = "mfsTest"
-    val topic2 = "mfsTest2"
-    val broker = "219.216.65.161:9092"
+    val topic2 = "mfsTest3"
+    val broker = "rabbitmq1:9092,rabbitmq5:9092,rabbitmq7:9092,rabbitmq8:9092";
 
     val dataStreamReader = spark
       .readStream
@@ -67,9 +67,9 @@ object kafkaWordCount {
 
     val dataStreamWriter = wordcount
       .writeStream
-      .queryName("kafka_test3")
-//      .option("checkpointLocation","mfs://219.216.65.161:8888/china")
-      .option("checkpointLocation","hdfs://219.216.65.161:9000/china")
+      .queryName("kafka_test7")
+//      .option("checkpointLocation","mfs://219.216.65.161:8888/china4")
+      .option("checkpointLocation","hdfs://219.216.65.161:9000/china3")
 //      .option("checkpointLocation","./checkpoint2020")
 //      .option("checkpointLocation","alluxio://localhost:19998/neu/checkpoint_streaming2020")
       .outputMode(OutputMode.Complete())

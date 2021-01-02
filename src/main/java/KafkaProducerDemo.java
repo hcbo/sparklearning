@@ -2,8 +2,6 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
-import java.util.UUID;
-
 /**
  * 模拟spark streaming 的数据源
  */
@@ -13,8 +11,11 @@ public class KafkaProducerDemo {
 
         Properties props = new Properties();
 
+        String remoteKafka = "219.216.65.160:9092";
+        String localKafka = "192.168.225.6:9092";
+
         //broker地址
-        props.put("bootstrap.servers", "219.216.65.161:9092");
+        props.put("bootstrap.servers", remoteKafka);
 
         //请求时候需要验证ide
         props.put("acks", "-1");
@@ -42,7 +43,7 @@ public class KafkaProducerDemo {
         while (true) {
             wordIndex = (int) (Math.random() * sources.length);
             no++;
-            ProducerRecord record = new ProducerRecord("mfsTest3",String.valueOf(no) ,sources[wordIndex]);
+            ProducerRecord record = new ProducerRecord("mfs1.0.1Test",String.valueOf(no) ,sources[wordIndex]);
             System.out.println(record.key()+"->"+record.value());
             producer.send(record);
             Thread.sleep(50);

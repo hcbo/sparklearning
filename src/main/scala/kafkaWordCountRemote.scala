@@ -1,21 +1,18 @@
-package structuredStreaming
-
 import java.text.SimpleDateFormat
 import java.util.Date
 
-import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.streaming.StreamingQueryListener.{QueryProgressEvent, QueryStartedEvent, QueryTerminatedEvent}
 import org.apache.spark.sql.streaming.{OutputMode, StreamingQueryListener}
 
-object kafkaWordCount {
+object kafkaWordCountRemote {
   def main(args: Array[String]): Unit = {
 //    System.setProperty("HADOOP_USER_NAME", "root");
     val spark = SparkSession
       .builder
       .appName("StructuredStreamingWordCount")
-      .master("local")
-//      .master("spark://219.216.65.161:7077")
+//      .master("local")
+      .master("spark://219.216.65.161:7077")
       .getOrCreate()
     val startTime = System.currentTimeMillis()
 //    println("currentTimeMillis:"+startTime)
@@ -38,7 +35,7 @@ object kafkaWordCount {
     })
 
     val topic2 = "mfs1.0.1Test"
-    val broker = "192.168.225.6:9092,192.168.225.6:9093,192.168.225.6:9094";
+    val broker = "219.216.65.160:9092,219.216.65.161:9092,219.216.65.81:9092,219.216.65.15:9092";
 
     val dataStreamReader = spark
       .readStream
@@ -69,9 +66,8 @@ object kafkaWordCount {
       .queryName("kafka_test7")
 //      .option("checkpointLocation","mfs://219.216.65.161:8888/china4")
 //      .option("checkpointLocation","hdfs://219.216.65.161:9000/china3")
-//      .option("checkpointLocation","mfs://127.0.0.1:8888/checkRoot")
-      .option("checkpointLocation","mfs://192.168.225.6:8888/checkRoot")
-      //            .option("checkpointLocation","./checkpoint2021")
+      .option("checkpointLocation","mfs://219.216.65.161:8888/checkRoot")
+//            .option("checkpointLocation","./checkpoint2021")
 //      .option("checkpointLocation","alluxio://localhost:19998/neu/checkpoint_streaming2020")
       .outputMode(OutputMode.Complete())
       .format("console")
